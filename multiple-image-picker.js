@@ -1,3 +1,4 @@
+var count = 0;
 var widget = {
     name: "imagepicker-multiple",
     isFit : function(question) {
@@ -44,7 +45,6 @@ var widget = {
     afterRender: function(question, el) {
         var $el = $(el).find("select");
         $el.attr("multiple", "multiple");
-    
         var options = $el.find('option');
         for (var i=1; i<options.length; i++) {
             $(options[i]).data("imgSrc", question.choices[i-1].imageLink);
@@ -55,6 +55,11 @@ var widget = {
             show_label  : false,
             changed: function(oldValues, newValues) {
               question.value = (newValues || []).filter(function(val) { return !!val; });
+              count = newValues.length;
+              if(newValues[0] == ''){
+                count --;
+              }
+            
             }
         })
     },
@@ -62,6 +67,6 @@ var widget = {
         var $el = $(el).find("select");
         $el.removeAttr("multiple");
         $el.data('picker').destroy();
-    } 
+  }
 }
 Survey.CustomWidgetCollection.Instance.addCustomWidget(widget, "customtype");

@@ -11,9 +11,9 @@ var json = {
             "validators": [
                 {
                     type: "answercount",
-                    text: "You should select 50 images",
+                    text: "You should select 15 images",
                     minCount: 15,
-                    maxCount: 15
+                    maxCount: 1
                 }
             ],
             "choicesOrder": "random",
@@ -109,4 +109,25 @@ survey
                 link.dispatchEvent( event );
             });
     },);
+
+// survey
+//     .onValueChanged
+//     .add(function (survey, options) {
+//         if(options.name !== "know") return;
+//         knownChoices = options.question.choices;
+//         var choices = [];
+//         for(var i = 0; i < knownChoices.length; i ++) {
+//             var item = knownChoices[i];
+//             // the item is not selected
+//             if(options.value.indexOf(item.value) < 0) {
+//                 choices.push(item);
+//             }
+//         }
+//         var learnQuestion = survey.getQuestionByName("choosepicture");
+//         learnQuestion.choices = choices;
+//         learnQuestion.visible = choices.length > 0;
+//         document.getElementById("myText").innerHTML = "result: " + choices;
+//         console.log(choices);
+//     });
+    console.log(count);
 $("#surveyElement").Survey({model: survey});
