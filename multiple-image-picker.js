@@ -1,4 +1,5 @@
 var count = 0;
+$("#aaaaa").text(count);
 var widget = {
     name: "imagepicker-multiple",
     isFit : function(question) {
@@ -59,7 +60,7 @@ var widget = {
               if(newValues[0] == ''){
                 count --;
               }
-            
+              $("#aaaaa").text(count);
             }
         })
     },
